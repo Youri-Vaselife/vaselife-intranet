@@ -92,10 +92,11 @@
   /* HERO */
   .hero {
     background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%);
-    padding: 48px 32px 40px;
+    padding: 32px 32px;
     color: white;
     position: relative;
     overflow: hidden;
+    text-align: center;
   }
 
   .hero::before {
@@ -522,12 +523,6 @@
 <!-- TOP BAR -->
 <nav class="topbar">
   <div class="topbar-logo">Vaselife <span>Intranet</span></div>
-  <ul class="topbar-nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">RI&amp;E</a></li>
-    <li><a href="#">Documenten</a></li>
-    <li><a href="#">Team</a></li>
-  </ul>
   <div class="topbar-right">
     <div class="avatar">YP</div>
     Youri Pappot
@@ -555,7 +550,7 @@
 </script>
 
 <!-- QUICK LINKS -->
-<div class="quicklinks">
+<div class="quicklinks" style="justify-content:center;">
   <a href="https://vaselife-productie.vercel.app/" target="_blank" class="ql-btn ql-btn-primary">
     <span class="ql-icon">🏭</span> Production dashboard
   </a>

@@ -189,8 +189,9 @@
     animation: fadeUp 0.4s ease both;
     display: flex;
     flex-direction: column;
-    min-height: 260px;
   }
+
+  .card-news, .card-docs { min-height: unset; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
@@ -245,7 +246,7 @@
     transition: background 0.15s;
   }
 
-  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-item:last-child { padding-bottom: 0; }
   .news-item:first-of-type { padding-top: 0; }
 
   .news-dot {
@@ -375,7 +376,7 @@
   }
 
   .doc-item:hover { opacity: 0.75; }
-  .doc-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .doc-item:last-child { padding-bottom: 0; }
   .doc-item:first-of-type { padding-top: 0; }
 
   .doc-type {

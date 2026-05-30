@@ -741,7 +741,7 @@
 
 <div class="footer">Vaselife International · Intranet · © 2026</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.5.0/lib/msal-browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.27.0/dist/msal-browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
   // ── Config (zelfde als productie dashboard) ──
@@ -757,7 +757,7 @@
     auth: {
       clientId: PROD_CFG.clientId,
       authority: 'https://login.microsoftonline.com/' + PROD_CFG.tenantId,
-      redirectUri: window.location.origin + window.location.pathname
+      redirectUri: 'https://vaselife-intranet.vercel.app/'
     },
     cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: false }
   });

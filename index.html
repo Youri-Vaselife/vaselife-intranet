@@ -741,7 +741,7 @@
 
 <div class="footer">Vaselife International · Intranet · © 2026</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.27.0/dist/msal-browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
   // ── Config (zelfde als productie dashboard) ──
@@ -839,8 +839,9 @@
   }
 
   async function initProd() {
-    // Verwerk redirect na login
-    try { await msalApp.handleRedirectPromise(); } catch {}
+    try {
+      await msalApp.handleRedirectPromise();
+    } catch(e) { console.warn('redirect:', e); }
 
     const token = await getProdToken();
     if (!token) {

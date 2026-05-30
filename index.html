@@ -956,13 +956,22 @@
     });
   }
 
-  // Employes smart link — App Store op mobiel, web op desktop
+  // Employes smart link — probeer app te openen, anders App Store
   document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('btn-employes');
     if (btn) {
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       if (isMobile) {
-        btn.href = 'https://apps.apple.com/nl/app/payroll-employes-by-shine/id1643127636';
+        btn.href = '#';
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Probeer app te openen
+          window.location = 'employes://';
+          // Na 1.5 sec als app niet opende, ga naar App Store
+          setTimeout(function() {
+            window.location = 'https://apps.apple.com/nl/app/payroll-employes-by-shine/id1643127636';
+          }, 1500);
+        });
       }
     }
   });

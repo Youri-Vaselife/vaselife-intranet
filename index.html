@@ -619,19 +619,13 @@
       <span id="prod-update" style="margin-left:auto; font-size:0.7rem; color:var(--text-muted);"></span>
     </div>
 
-    <!-- Laadstatus -->
-    <div id="prod-loading" style="text-align:center; padding:16px 0; color:var(--text-muted); font-size:0.85rem;">
-      <div style="width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--plum);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 8px;"></div>
-      Data ophalen...
-    </div>
-
-    <!-- Live data -->
-    <div id="prod-data" style="display:none;">
+    <!-- Live data — altijd zichtbaar, wordt gevuld door JS -->
+    <div id="prod-data">
       <!-- Voortgangsbar minimum stock -->
       <div style="margin-bottom:12px;">
         <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
           <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Minimum stock voortgang</span>
-          <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">--%</span>
+          <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">...</span>
         </div>
         <div class="progress-bar">
           <div id="prod-bar" class="progress-fill" style="background:linear-gradient(90deg,#2e7d32,#66bb6a); width:0%;"></div>
@@ -807,9 +801,7 @@
   }
 
   function showProdData({ articles, totalShifts, pct, weeksEst }) {
-    document.getElementById('prod-loading').style.display = 'none';
     document.getElementById('prod-login').style.display = 'none';
-    document.getElementById('prod-data').style.display = 'block';
     document.getElementById('prod-pct').textContent = pct + '%';
     document.getElementById('prod-pct').style.color = pct >= 80 ? '#2e7d32' : pct >= 50 ? '#f57c00' : '#c62828';
     document.getElementById('prod-bar').style.width = pct + '%';
@@ -883,7 +875,7 @@
       const data = await loadProdData(token);
       showProdData(data);
     } catch (e) {
-      document.getElementById('prod-loading').innerHTML = `<span style="color:#c62828;font-size:0.8rem;">⚠️ ${e.message}</span>`;
+      document.getElementById('prod-pct').textContent = '⚠️';
     }
   }
 

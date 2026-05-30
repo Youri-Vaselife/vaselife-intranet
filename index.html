@@ -622,7 +622,6 @@
     <div class="card-header">
       <div class="card-icon icon-docs" style="background:#e8f5e9;">🏭</div>
       <div class="card-title">Production Dashboard</div>
-      <span id="prod-update" style="margin-left:auto; font-size:0.7rem; color:var(--text-muted);"></span>
     </div>
 
     <!-- Live data — altijd zichtbaar, wordt gevuld door JS -->
@@ -814,7 +813,6 @@
     document.getElementById('prod-articles').textContent = articles;
     document.getElementById('prod-shifts').textContent = totalShifts;
     document.getElementById('prod-weeks').textContent = weeksEst;
-    document.getElementById('prod-update').textContent = new Date().toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
   }
 
   async function doIntranetLogin() {

@@ -168,9 +168,15 @@
     .main {
       grid-template-columns: 1fr 1fr;
       padding: 16px 12px 48px;
+      gap: 12px;
     }
     .card-news { grid-column: span 2; }
     .card-docs { grid-column: span 2; }
+    .label-desktop { display: none !important; }
+    .label-mobile { display: inline !important; }
+    .card-title { font-size: 0.85rem; }
+    .card-header { gap: 6px; }
+    .card-icon { width: 28px; height: 28px; font-size: 0.9rem; }
   }
 
   /* CARDS */
@@ -621,7 +627,8 @@
   <div class="card" id="prod-card">
     <div class="card-header">
       <div class="card-icon icon-docs" style="background:#e8f5e9;">🏭</div>
-      <div class="card-title">Productie</div>
+      <div class="card-title label-desktop">Production Dashboard</div>
+      <div class="card-title label-mobile" style="display:none;">Productie</div>
     </div>
 
     <!-- Live data — altijd zichtbaar, wordt gevuld door JS -->
@@ -629,7 +636,8 @@
       <!-- Voortgangsbar minimum stock -->
       <div style="margin-bottom:12px;">
         <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
-          <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Stock voortgang</span>
+          <span class="label-desktop" style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Minimum stock voortgang</span>
+          <span class="label-mobile" style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:none;">Stock voortgang</span>
           <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">...</span>
         </div>
         <div class="progress-bar">
@@ -674,7 +682,8 @@
 
     <div style="margin-bottom:12px;">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
-        <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Voortgang</span>
+        <span class="label-desktop" style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Actiepunten voortgang</span>
+        <span class="label-mobile" style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:none;"></span>
         <span style="font-size:1.1rem; font-weight:700; color:var(--plum);">38%</span>
       </div>
       <div class="progress-bar">

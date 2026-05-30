@@ -624,7 +624,7 @@
   <a href="https://rie-vaselife.vercel.app/" target="_blank" class="ql-btn ql-btn-secondary">
     <span class="ql-icon">🛡️</span> RI&amp;E taken
   </a>
-  <a href="https://app.employes.nl" target="_blank" class="ql-btn ql-btn-gold">
+  <a href="https://app.employes.nl" target="_blank" class="ql-btn ql-btn-gold" id="btn-employes">
     <span class="ql-icon">👤</span> Mijn Employes
   </a>
 </div>
@@ -955,6 +955,17 @@
       scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
     });
   }
+
+  // Employes smart link — App Store op mobiel, web op desktop
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('btn-employes');
+    if (btn) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        btn.href = 'https://apps.apple.com/nl/app/payroll-employes-by-shine/id1643127636';
+      }
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', initProd);
 </script>

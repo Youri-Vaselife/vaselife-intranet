@@ -171,6 +171,8 @@
     box-shadow: 0 2px 12px rgba(92,31,82,0.07);
     border: 1px solid var(--border);
     animation: fadeUp 0.4s ease both;
+    display: flex;
+    flex-direction: column;
   }
 
   @keyframes fadeUp {
@@ -655,7 +657,7 @@
       <div style="font-size:0.72rem; color:var(--text-muted); margin-top:6px;">Vaselife account vereist</div>
     </div>
 
-    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link" style="background: #2e7d32; margin-top:12px;">Ga naar productie dashboard →</a>
+    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link" style="background: #2e7d32; margin-top:auto;">Ga naar productie dashboard →</a>
   </div>
 
   <!-- RI&E -->
@@ -665,36 +667,32 @@
       <div class="card-title">RI&amp;E voortgang</div>
     </div>
 
-    <div class="rie-stat">
-      <div class="rie-number">56</div>
-      <div class="rie-label">totaal<br>actiepunten</div>
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-    <div class="progress-labels">
-      <span>0%</span>
-      <span>38% afgerond</span>
-      <span>100%</span>
-    </div>
-
-    <div class="rie-statuses">
-      <div class="status-pill pill-open">
-        <span class="pill-count">21</span>
-        Open
+    <div style="margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+        <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Actiepunten voortgang</span>
+        <span style="font-size:1.1rem; font-weight:700; color:var(--plum);">38%</span>
       </div>
-      <div class="status-pill pill-busy">
-        <span class="pill-count">14</span>
-        Bezig
-      </div>
-      <div class="status-pill pill-done">
-        <span class="pill-count">21</span>
-        Klaar
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
       </div>
     </div>
 
-    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link">Ga naar RI&amp;E app →</a>
+    <div style="display:flex; gap:8px; margin-bottom:12px;">
+      <div style="flex:1; background:#fef0f0; color:#c0392b; text-align:center; padding:10px 4px; border-radius:8px;">
+        <span style="font-size:1.2rem; font-weight:700; display:block;">21</span>
+        <span style="font-size:0.72rem;">Open</span>
+      </div>
+      <div style="flex:1; background:#fef9e7; color:#d68910; text-align:center; padding:10px 4px; border-radius:8px;">
+        <span style="font-size:1.2rem; font-weight:700; display:block;">14</span>
+        <span style="font-size:0.72rem;">Bezig</span>
+      </div>
+      <div style="flex:1; background:#eafaf1; color:#27ae60; text-align:center; padding:10px 4px; border-radius:8px;">
+        <span style="font-size:1.2rem; font-weight:700; display:block;">21</span>
+        <span style="font-size:0.72rem;">Klaar</span>
+      </div>
+    </div>
+
+    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link" style="margin-top:auto;">Ga naar RI&amp;E app →</a>
   </div>
 
   <!-- DOCUMENTEN -->

@@ -520,12 +520,28 @@
 </head>
 <body>
 
+<!-- LOGIN SCHERM -->
+<div id="login-screen" style="display:none; position:fixed; inset:0; background:linear-gradient(135deg,#5c1f52 0%,#8b2a6e 60%,#c0397a 100%); z-index:9999; display:flex; align-items:center; justify-content:center;">
+  <div style="background:white; border-radius:20px; padding:48px 40px; text-align:center; max-width:380px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:#5c1f52; margin-bottom:4px;">Vaselife <span style="color:#d4a853;">Intranet</span></div>
+    <div style="font-size:0.85rem; color:#6b6b6b; margin-bottom:32px;">Log in met je Vaselife account</div>
+    <button onclick="doIntranetLogin()" style="background:#5c1f52; color:white; border:none; border-radius:12px; padding:14px 28px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; font-family:'DM Sans',sans-serif;">
+      <svg width="20" height="20" viewBox="0 0 23 23" fill="none"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
+      Inloggen met Microsoft
+    </button>
+    <div style="font-size:0.75rem; color:#9b9b9b; margin-top:16px;">Alleen toegankelijk voor Vaselife medewerkers</div>
+  </div>
+</div>
+
+<!-- HOOFDINHOUD (verborgen tot ingelogd) -->
+<div id="main-content" style="display:none;">
+
 <!-- TOP BAR -->
 <nav class="topbar">
   <div class="topbar-logo">Vaselife <span>Intranet</span></div>
   <div class="topbar-right">
-    <div class="avatar">YP</div>
-    Youri Pappot
+    <div class="avatar" id="user-initials">--</div>
+    <span id="user-name-display"></span>
   </div>
 </nav>
 
@@ -539,14 +555,10 @@
 <script>
   function updateGreeting() {
     const now = new Date();
-    const h = now.getHours();
-    const greeting = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
-    document.getElementById('greeting').textContent = greeting + ', Youri 👋';
     const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
     const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
     document.getElementById('herodate').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
   }
-  updateGreeting();
 </script>
 
 <!-- QUICK LINKS -->
@@ -733,6 +745,7 @@
 </div>
 
 <div class="footer">Vaselife International · Intranet · © 2026</div>
+</div><!-- einde main-content -->
 
 <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -831,23 +844,90 @@
     document.getElementById('prod-update').textContent = new Date().toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
   }
 
+  async function doIntranetLogin() {
+    msalApp.loginRedirect({
+      scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
+    });
+  }
+
+  function setUserInfo(account) {
+    const fullName = account.name || account.username || 'Medewerker';
+    const firstName = fullName.split(' ')[0];
+    const initials = fullName.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase();
+
+    // Naam in topbar
+    document.getElementById('user-name-display').textContent = fullName;
+    document.getElementById('user-initials').textContent = initials;
+
+    // Begroeting
+    const now = new Date();
+    const h = now.getHours();
+    const greeting = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
+    document.getElementById('greeting').textContent = greeting + ', ' + firstName + ' 👋';
+  }
+
   async function initProd() {
     try {
-      await msalApp.handleRedirectPromise();
+      const redirectResp = await msalApp.handleRedirectPromise();
+      if (redirectResp) {
+        // Net ingelogd via redirect
+        showApp(redirectResp.account, redirectResp.accessToken);
+        return;
+      }
     } catch(e) { console.warn('redirect:', e); }
 
-    const token = await getProdToken();
-    if (!token) {
-      document.getElementById('prod-loading').style.display = 'none';
-      document.getElementById('prod-login').style.display = 'block';
+    const accounts = msalApp.getAllAccounts();
+    if (!accounts.length) {
+      // Niet ingelogd — toon loginscherm
+      document.getElementById('login-screen').style.display = 'flex';
       return;
     }
+
+    // Al ingelogd — silent token ophalen
+    try {
+      const resp = await msalApp.acquireTokenSilent({
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
+        account: accounts[0]
+      });
+      showApp(accounts[0], resp.accessToken);
+    } catch {
+      document.getElementById('login-screen').style.display = 'flex';
+    }
+  }
+
+  function showApp(account, token) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    setUserInfo(account);
+    updateGreeting();
+    loadProdDataAndShow(token);
+  }
+
+  async function loadProdDataAndShow(token) {
     try {
       const data = await loadProdData(token);
       showProdData(data);
     } catch (e) {
       document.getElementById('prod-loading').innerHTML = `<span style="color:#c62828;font-size:0.8rem;">⚠️ ${e.message}</span>`;
     }
+  }
+
+  async function getProdToken() {
+    const accounts = msalApp.getAllAccounts();
+    if (!accounts.length) return null;
+    try {
+      const resp = await msalApp.acquireTokenSilent({
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
+        account: accounts[0]
+      });
+      return resp.accessToken;
+    } catch { return null; }
+  }
+
+  async function prodLogin() {
+    msalApp.loginRedirect({
+      scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
+    });
   }
 
   document.addEventListener('DOMContentLoaded', initProd);

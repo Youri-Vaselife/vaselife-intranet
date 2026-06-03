@@ -259,19 +259,12 @@
   // ── Nieuws laden uit SharePoint lijst ──
   async function loadNews(token) {
     try {
-      // Eerst site ID ophalen
-      const siteResp = await fetch(CFG.newsSite, { headers: { Authorization: 'Bearer ' + token } });
-      if (!siteResp.ok) throw new Error('Site niet gevonden');
-      const site = await siteResp.json();
-
-      // Dan lijst items ophalen — gesorteerd op datum aflopend
       const listResp = await fetch(
-        `https://graph.microsoft.com/v1.0/sites/${site.id}/lists/Nieuws%20%20aankondigingen/items?$expand=fields&$orderby=fields/Datum%20desc&$top=5`,
+        `https://graph.microsoft.com/v1.0/sites/root/lists/Nieuws%20%20aankondigingen/items?$expand=fields&$orderby=fields/Datum%20desc&$top=5`,
         { headers: { Authorization: 'Bearer ' + token } }
       );
-      if (!listResp.ok) throw new Error('Lijst niet gevonden');
+      if (!listResp.ok) throw new Error('Lijst niet gevonden: ' + listResp.status);
       const data = await listResp.json();
-
       renderNews(data.value);
     } catch(e) {
       console.error('Nieuws laden mislukt:', e);

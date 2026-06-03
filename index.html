@@ -250,7 +250,7 @@
   async function doIntranetLogin() {
     try {
       const resp = await msalApp.loginPopup({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All', 'https://graph.microsoft.com/Sites.Selected']
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
       });
       showApp(resp.account, resp.accessToken);
     } catch(e) { console.error('Login mislukt:', e); }
@@ -370,7 +370,7 @@
     if (!accounts.length) { document.getElementById('login-screen').style.display = 'flex'; return; }
     try {
       const resp = await msalApp.acquireTokenSilent({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All', 'https://graph.microsoft.com/Sites.Selected'],
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
         account: accounts[0]
       });
       showApp(accounts[0], resp.accessToken);

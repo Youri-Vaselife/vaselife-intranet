@@ -266,7 +266,7 @@
 
       // Dan lijst items ophalen — gesorteerd op datum aflopend
       const listResp = await fetch(
-        `https://graph.microsoft.com/v1.0/sites/${site.id}/lists/Nieuws %26 aankondigingen/items?$expand=fields&$orderby=fields/Datum desc&$top=5`,
+        `https://graph.microsoft.com/v1.0/sites/${site.id}/lists/Nieuws%20%26%20aankondigingen/items?$expand=fields&$orderby=fields/Datum%20desc&$top=5`,
         { headers: { Authorization: 'Bearer ' + token } }
       );
       if (!listResp.ok) throw new Error('Lijst niet gevonden');

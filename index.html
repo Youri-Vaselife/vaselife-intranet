@@ -281,21 +281,34 @@
 
     const tagColors = { 'HR': '#d4a853', 'Bedrijf': 'var(--plum-light)', 'Overig': 'var(--plum-mid)' };
 
-    container.innerHTML = items.map(item => {
+    container.innerHTML = items.map((item, i) => {
       const f = item.fields;
       const tag = f.Tag || 'Overig';
       const titel = f.Title || '';
+      const inhoud = f.Inhoud || '';
       const datum = f.Datum ? new Date(f.Datum).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
       const color = tagColors[tag] || 'var(--plum-mid)';
-      return `<div class="news-item">
-        <div class="news-dot" style="background:${color}"></div>
-        <div class="news-content">
-          <div class="news-tag">${tag}</div>
-          <div class="news-headline">${titel}</div>
-          <div class="news-date">${datum}</div>
+      return `<div class="news-item" style="flex-direction:column; cursor:pointer;" onclick="toggleNews(this)">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <div class="news-dot" style="background:${color}; margin-top:6px; flex-shrink:0;"></div>
+          <div class="news-content" style="flex:1;">
+            <div class="news-tag">${tag}</div>
+            <div class="news-headline">${titel}</div>
+            <div class="news-date">${datum}</div>
+          </div>
+          <div class="news-chevron" style="color:#999; font-size:12px; padding-top:4px;">▾</div>
         </div>
+        <div class="news-body" style="display:none; padding:10px 22px 4px; font-size:0.85rem; color:#444; line-height:1.6; background:#f9f4f8; border-radius:8px; margin-top:8px;">${inhoud}</div>
       </div>`;
     }).join('');
+  }
+
+  function toggleNews(el) {
+    const body = el.querySelector('.news-body');
+    const chevron = el.querySelector('.news-chevron');
+    const isOpen = body.style.display !== 'none';
+    body.style.display = isOpen ? 'none' : 'block';
+    chevron.textContent = isOpen ? '▾' : '▴';
   }
 
   // ── Productie data ──

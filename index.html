@@ -18,541 +18,68 @@
     --text-muted: #6b6b6b;
     --border: #e8dce6;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--plum-pale);
-    color: var(--text);
-    min-height: 100vh;
-  }
-
-  /* TOP BAR */
-  .topbar {
-    background: var(--plum);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 32px;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 16px rgba(92,31,82,0.3);
-  }
-
-  .topbar-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: white;
-  }
-
-  .topbar-logo span {
-    color: var(--gold);
-  }
-
-  .topbar-nav {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-
-  .topbar-nav a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-
-  .topbar-nav a:hover { color: white; }
-
-  .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.75);
-  }
-
-  .avatar {
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    background: var(--plum-light);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 0.85rem; color: white;
-    border: 2px solid rgba(255,255,255,0.3);
-  }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%);
-    padding: 32px 32px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    right: -60px; top: -60px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    right: 80px; bottom: -80px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.03);
-  }
-
-  .hero-greeting {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.65);
-  }
-
-  .hero-date {
-    margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.12);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.85);
-  }
-
-  /* MAIN GRID */
-  .main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 28px 16px 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
+  body { font-family: 'DM Sans', sans-serif; background: var(--plum-pale); color: var(--text); min-height: 100vh; }
+  .topbar { background: var(--plum); color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(92,31,82,0.3); }
+  .topbar-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.04em; color: white; }
+  .topbar-logo span { color: var(--gold); }
+  .topbar-right { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+  .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--plum-light); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; color: white; border: 2px solid rgba(255,255,255,0.3); }
+  .hero { background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%); padding: 32px 32px; color: white; position: relative; overflow: hidden; text-align: center; }
+  .hero::before { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+  .hero::after { content: ''; position: absolute; right: 80px; bottom: -80px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+  .hero-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+  .hero-date { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.85); }
+  .main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .card-news { grid-column: span 2; }
   .card-docs { grid-column: span 2; }
-
   @media (max-width: 600px) {
-    .main {
-      grid-template-columns: 1fr 1fr;
-      padding: 16px 12px 48px;
-      gap: 12px;
-    }
+    .main { grid-template-columns: 1fr 1fr; padding: 16px 12px 48px; gap: 12px; }
     .card-news { grid-column: span 2; }
     .card-docs { grid-column: span 2; }
     .label-desktop { display: none !important; }
     .label-mobile { display: inline !important; }
-    .card-title { font-size: 0.85rem; }
-    .card-header { gap: 6px; }
-    .card-icon { width: 28px; height: 28px; font-size: 0.9rem; }
   }
-
-  /* CARDS */
-  .card {
-    background: white;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 2px 12px rgba(92,31,82,0.07);
-    border: 1px solid var(--border);
-    animation: fadeUp 0.4s ease both;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-news, .card-docs { min-height: unset; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  .card { background: white; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(92,31,82,0.07); border: 1px solid var(--border); animation: fadeUp 0.4s ease both; display: flex; flex-direction: column; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   .card:nth-child(1) { animation-delay: 0.05s; }
   .card:nth-child(2) { animation-delay: 0.1s; }
   .card:nth-child(3) { animation-delay: 0.15s; }
   .card:nth-child(4) { animation-delay: 0.2s; }
-  .card:nth-child(5) { animation-delay: 0.25s; }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-
-  .card-icon {
-    width: 36px; height: 36px;
-    border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .card-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
   .icon-news { background: #fef3e8; }
   .icon-rie { background: #fde8ee; }
   .icon-docs { background: #e8f0fe; }
-  .icon-contacts { background: #e8fdf0; }
-
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--plum);
-  }
-
-  @media (max-width: 600px) {
-    .card-title { font-size: 0.85rem; }
-    .card-header { gap: 6px; }
-    .card-icon { width: 28px; height: 28px; font-size: 0.9rem; }
-  }
-
-  .news-item {
-    display: flex;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-
-  .news-item:last-child { padding-bottom: 0; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--plum); }
+  .news-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .news-item:last-child { padding-bottom: 0; border-bottom: none; }
   .news-item:first-of-type { padding-top: 0; }
-
-  .news-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--plum-light);
-    margin-top: 6px;
-    flex-shrink: 0;
-  }
-
-  .news-content {}
-
-  .news-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--plum-mid);
-    margin-bottom: 3px;
-  }
-
-  .news-headline {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 3px;
-  }
-
-  .news-date {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  /* RI&E CARD */
-  .rie-stat {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .rie-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--plum);
-    line-height: 1;
-  }
-
-  .rie-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  .progress-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--plum-subtle);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 8px;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--plum-mid), var(--plum-light));
-    border-radius: 4px;
-    width: 38%;
-    transition: width 1s ease;
-  }
-
-  .progress-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
-  .rie-statuses {
-    display: flex;
-    gap: 8px;
-  }
-
-  .status-pill {
-    flex: 1;
-    text-align: center;
-    padding: 8px 4px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-  }
-
-  .pill-open { background: #fef0f0; color: #c0392b; }
-  .pill-busy { background: #fef9e7; color: #d68910; }
-  .pill-done { background: #eafaf1; color: #27ae60; }
-
+  .news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--plum-light); margin-top: 6px; flex-shrink: 0; }
+  .news-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--plum-mid); margin-bottom: 3px; }
+  .news-headline { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 3px; }
+  .news-date { font-size: 0.75rem; color: var(--text-muted); }
+  .progress-bar { width: 100%; height: 8px; background: var(--plum-subtle); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--plum-mid), var(--plum-light)); border-radius: 4px; width: 38%; transition: width 1s ease; }
+  .status-pill { flex: 1; text-align: center; padding: 8px 4px; border-radius: 8px; font-size: 0.75rem; }
   .pill-count { font-size: 1.1rem; font-weight: 700; display: block; }
-
-  .rie-link {
-    display: block;
-    margin-top: 16px;
-    text-align: center;
-    background: var(--plum);
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-
+  .rie-link { display: block; margin-top: 16px; text-align: center; background: var(--plum); color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
   .rie-link:hover { background: var(--plum-mid); }
-
-  /* DOCUMENTS CARD */
-  .doc-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
+  .doc-item { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
   .doc-item:hover { opacity: 0.75; }
-  .doc-item:last-child { border-bottom: 1px solid var(--border); padding-bottom: 16px; }
-  .doc-item:first-of-type { padding-top: 16px; }
-
-  .doc-type {
-    width: 32px; height: 32px;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; font-weight: 700;
-    flex-shrink: 0;
-  }
-
+  .doc-type { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
   .doc-pdf { background: #fde8e8; color: #c0392b; }
-  .doc-xls { background: #e8fde8; color: #27ae60; }
-  .doc-doc { background: #e8eefe; color: #2c5fad; }
-
   .doc-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
-  .doc-meta { font-size: 0.72rem; color: var(--text-muted); }
-
-  .contact-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 14px 8px;
-    border-radius: 10px;
-    background: var(--plum-pale);
-    border: 1px solid var(--border);
-    transition: box-shadow 0.2s;
-    cursor: pointer;
-  }
-
-  .contact-item:hover { box-shadow: 0 4px 14px rgba(92,31,82,0.12); }
-
-  .contact-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--plum-mid), var(--plum-light));
-    color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 1rem;
-    margin-bottom: 8px;
-    border: 2px solid white;
-    box-shadow: 0 2px 8px rgba(92,31,82,0.2);
-  }
-
-  .contact-name { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-  .contact-role { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 8px; }
-
-  .contact-hr-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--plum-mid);
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 9px;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .contact-hr-btn:hover {
-    background: var(--plum);
-    color: white;
-    border-color: var(--plum);
-  }
-
-  /* QUICK LINKS */
-  .quicklinks {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 16px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .quicklinks-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-right: 4px;
-    white-space: nowrap;
-  }
-
-  .ql-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
-  .ql-btn-primary {
-    background: var(--plum);
-    color: white;
-    box-shadow: 0 2px 10px rgba(92,31,82,0.25);
-  }
-
-  .ql-btn-primary:hover {
-    background: var(--plum-mid);
-    box-shadow: 0 4px 16px rgba(92,31,82,0.35);
-    transform: translateY(-1px);
-  }
-
-  .ql-btn-secondary {
-    background: var(--plum-mid);
-    color: white;
-    box-shadow: 0 2px 10px rgba(139,42,110,0.25);
-  }
-
-  .ql-btn-secondary:hover {
-    background: var(--plum-light);
-    box-shadow: 0 4px 16px rgba(139,42,110,0.35);
-    transform: translateY(-1px);
-  }
-
-  .ql-btn-gold {
-    background: var(--plum-light);
-    color: white;
-    box-shadow: 0 2px 10px rgba(192,57,122,0.25);
-  }
-
-  .ql-btn-gold:hover {
-    background: #d4468a;
-    box-shadow: 0 4px 16px rgba(192,57,122,0.35);
-    transform: translateY(-1px);
-  }
-
-  .ql-btn-home {
-    background: var(--plum-subtle);
-    color: var(--plum);
-    border: 1px solid var(--border);
-  }
-
-  .ql-btn-home:hover, .ql-btn-home.active {
-    background: var(--plum);
-    color: white;
-    transform: translateY(-1px);
-  }
-
-  .ql-btn.active {
-    opacity: 0.8;
-    transform: translateY(1px);
-  }
-
-  .ql-icon { font-size: 1rem; }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-  }
+  .quicklinks { background: white; border-bottom: 1px solid var(--border); padding: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .ql-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .ql-btn-primary { background: var(--plum); color: white; box-shadow: 0 2px 10px rgba(92,31,82,0.25); }
+  .ql-btn-primary:hover { background: var(--plum-mid); transform: translateY(-1px); }
+  .ql-btn-secondary { background: var(--plum-mid); color: white; box-shadow: 0 2px 10px rgba(139,42,110,0.25); }
+  .ql-btn-secondary:hover { background: var(--plum-light); transform: translateY(-1px); }
+  .ql-btn-gold { background: var(--plum-light); color: white; box-shadow: 0 2px 10px rgba(192,57,122,0.25); }
+  .ql-btn-gold:hover { background: #d4468a; transform: translateY(-1px); }
+  .footer { text-align: center; padding: 20px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -570,10 +97,9 @@
   </div>
 </div>
 
-<!-- HOOFDINHOUD (verborgen tot ingelogd) -->
+<!-- HOOFDINHOUD -->
 <div id="main-content" style="display:none;">
 
-<!-- TOP BAR -->
 <nav class="topbar">
   <div class="topbar-logo">Vaselife <span>Intranet</span></div>
   <div class="topbar-right">
@@ -582,51 +108,13 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-title" id="greeting">👋</div>
   <div class="hero-subtitle">Alles op één plek voor het Vaselife team</div>
   <div class="hero-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-2px;margin-right:5px;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="herodate"></span></div>
 </div>
 
-<script>
-  function showPage(page) {
-    const homeContent = document.getElementById('home-content');
-    const iframeViewer = document.getElementById('iframe-viewer');
-    const iframe = document.getElementById('main-iframe');
-
-    // Reset alle knoppen
-    ['btn-home','btn-productie','btn-rie'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove('active');
-    });
-
-    if (page === 'home') {
-      homeContent.style.display = 'block';
-      iframeViewer.style.display = 'none';
-      document.getElementById('btn-home').classList.add('active');
-    } else {
-      homeContent.style.display = 'none';
-      iframeViewer.style.display = 'block';
-      const urls = {
-        productie: 'https://vaselife-productie.vercel.app/',
-        rie: 'https://rie-vaselife.vercel.app/'
-      };
-      iframe.src = urls[page];
-      document.getElementById('btn-' + page).classList.add('active');
-    }
-  }
-
-  function updateGreeting() {
-    const now = new Date();
-    const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-    const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
-    document.getElementById('herodate').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
-  }
-</script>
-
-<!-- QUICK LINKS -->
-<div class="quicklinks" style="justify-content:center;">
+<div class="quicklinks">
   <a href="https://vaselife-productie.vercel.app/" target="_blank" class="ql-btn ql-btn-primary">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 11h20M6 7V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2"/><line x1="9" y1="15" x2="9" y2="17"/><line x1="15" y1="15" x2="15" y2="17"/></svg>
     Production dashboard
@@ -635,22 +123,19 @@
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg>
     RI&amp;E dashboard
   </a>
-  <a href="https://app.employes.nl" target="_blank" class="ql-btn ql-btn-gold" id="btn-employes">
+  <a href="https://app.employes.nl" target="_blank" class="ql-btn ql-btn-gold">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     Mijn Employes
   </a>
 </div>
 
-<!-- GRID -->
 <div class="main">
 
-  <!-- NIEUWS -->
   <div class="card card-news">
     <div class="card-header">
       <div class="card-icon icon-news"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2V9"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
-      <div class="card-title">Nieuws & aankondigingen</div>
+      <div class="card-title">Nieuws &amp; aankondigingen</div>
     </div>
-
     <div class="news-item">
       <div class="news-dot"></div>
       <div class="news-content">
@@ -659,7 +144,6 @@
         <div class="news-date">Vandaag</div>
       </div>
     </div>
-
     <div class="news-item">
       <div class="news-dot" style="background:#d4a853"></div>
       <div class="news-content">
@@ -668,86 +152,51 @@
         <div class="news-date">Vandaag</div>
       </div>
     </div>
-
-    <div class="news-item">
-      <div class="news-dot" style="background:#8b2a6e"></div>
-      <div class="news-content">
-        <div class="news-tag">Overig</div>
-        <div class="news-headline"></div>
-        <div class="news-date"></div>
-      </div>
-    </div>
   </div>
 
-  <!-- PRODUCTIE STATUS -->
   <div class="card" id="prod-card">
     <div class="card-header">
-      <div class="card-icon icon-docs" style="background:#e8f5e9;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 11h20M6 7V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2"/><line x1="9" y1="15" x2="9" y2="17"/><line x1="15" y1="15" x2="15" y2="17"/></svg></div>
-      <div class="card-title label-desktop">Production<br>Dashboard</div>
-      <div class="card-title label-mobile" style="display:none;">Production<br>Dashboard</div>
+      <div class="card-icon" style="background:#e8f5e9;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 11h20M6 7V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2"/><line x1="9" y1="15" x2="9" y2="17"/><line x1="15" y1="15" x2="15" y2="17"/></svg></div>
+      <div class="card-title">Production<br>Dashboard</div>
     </div>
-
-    <!-- Live data — altijd zichtbaar, wordt gevuld door JS -->
-    <div id="prod-data">
-      <!-- Voortgangsbar minimum stock -->
-      <div style="margin-bottom:12px;">
-        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
-          <span class="label-desktop" style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Minimum stock voortgang</span>
-          <span class="label-mobile" style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:none;">Stock voortgang</span>
-          <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">...</span>
-        </div>
-        <div class="progress-bar">
-          <div id="prod-bar" class="progress-fill" style="background:linear-gradient(90deg,#2e7d32,#66bb6a); width:0%;"></div>
-        </div>
+    <div style="margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+        <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Minimum stock voortgang</span>
+        <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">...</span>
       </div>
-
-      <!-- Stats rij -->
-      <div style="display:flex; gap:8px; margin-bottom:12px;">
-        <div class="status-pill" style="flex:1; background:#e8f5e9; color:#2e7d32; text-align:center; padding:10px 4px; border-radius:8px;">
-          <span id="prod-articles" class="pill-count" style="font-size:1.2rem; font-weight:700; display:block;">-</span>
-          <span style="font-size:0.72rem;">Artikelen</span>
-        </div>
-        <div class="status-pill" style="flex:1; background:#e3f2fd; color:#1565c0; text-align:center; padding:10px 4px; border-radius:8px;">
-          <span id="prod-shifts" class="pill-count" style="font-size:1.2rem; font-weight:700; display:block;">-</span>
-          <span style="font-size:0.72rem;">Shifts nodig</span>
-        </div>
-        <div class="status-pill" style="flex:1; background:#f3e5f5; color:#6a1b9a; text-align:center; padding:10px 4px; border-radius:8px;">
-          <span id="prod-weeks" class="pill-count" style="font-size:1.2rem; font-weight:700; display:block;">-</span>
-          <span style="font-size:0.72rem;">Weken plan</span>
-        </div>
+      <div class="progress-bar">
+        <div id="prod-bar" class="progress-fill" style="background:linear-gradient(90deg,#2e7d32,#66bb6a); width:0%;"></div>
       </div>
     </div>
-
-    <!-- Inlogknop (zichtbaar als niet ingelogd) -->
-    <div id="prod-login" style="display:none; text-align:center; padding:8px 0 4px;">
-      <button onclick="prodLogin()" style="background:var(--plum); color:white; border:none; border-radius:8px; padding:9px 18px; font-size:0.85rem; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
-        🔐 Inloggen met Microsoft
-      </button>
-      <div style="font-size:0.72rem; color:var(--text-muted); margin-top:6px;">Vaselife account vereist</div>
+    <div style="display:flex; gap:8px; margin-bottom:12px;">
+      <div class="status-pill" style="background:#e8f5e9; color:#2e7d32;">
+        <span id="prod-articles" class="pill-count">-</span>
+        <span style="font-size:0.72rem;">Artikelen</span>
+      </div>
+      <div class="status-pill" style="background:#e3f2fd; color:#1565c0;">
+        <span id="prod-shifts" class="pill-count">-</span>
+        <span style="font-size:0.72rem;">Shifts nodig</span>
+      </div>
+      <div class="status-pill" style="background:#f3e5f5; color:#6a1b9a;">
+        <span id="prod-weeks" class="pill-count">-</span>
+        <span style="font-size:0.72rem;">Weken plan</span>
+      </div>
     </div>
-
-    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link label-desktop" style="background: #2e7d32; margin-top:auto;">Ga naar Production dashboard →</a>
-    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link label-mobile" style="background: #2e7d32; margin-top:auto; display:none;">Dashboard →</a>
+    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link" style="background:#2e7d32; margin-top:auto;">Ga naar Production dashboard →</a>
   </div>
 
-  <!-- RI&E -->
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-rie"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg></div>
       <div class="card-title">RI&amp;E<br>dashboard</div>
     </div>
-
     <div style="margin-bottom:12px;">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
-        <span class="label-desktop" style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Actiepunten voortgang</span>
-        <span class="label-mobile" style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:none;"></span>
+        <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Actiepunten voortgang</span>
         <span style="font-size:1.1rem; font-weight:700; color:var(--plum);">38%</span>
       </div>
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
+      <div class="progress-bar"><div class="progress-fill"></div></div>
     </div>
-
     <div style="display:flex; gap:8px; margin-bottom:12px;">
       <div style="flex:1; background:#fef0f0; color:#c0392b; text-align:center; padding:10px 4px; border-radius:8px;">
         <span style="font-size:1.2rem; font-weight:700; display:block;">21</span>
@@ -762,18 +211,14 @@
         <span style="font-size:0.72rem;">Klaar</span>
       </div>
     </div>
-
-    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link label-desktop" style="margin-top:auto;">Ga naar RI&amp;E dashboard →</a>
-    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link label-mobile" style="margin-top:auto; display:none;">Dashboard →</a>
+    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link" style="margin-top:auto;">Ga naar RI&amp;E dashboard →</a>
   </div>
 
-  <!-- DOCUMENTEN -->
   <div class="card card-docs">
     <div class="card-header">
       <div class="card-icon icon-docs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
       <div class="card-title">Documenten</div>
     </div>
-
     <div class="doc-item">
       <div class="doc-type doc-pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
       <div>
@@ -785,12 +230,11 @@
 </div>
 
 <div class="footer">Vaselife International · Intranet · © 2026</div>
-</div><!-- einde main-content -->
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-  // ── Config (zelfde als productie dashboard) ──
   const PROD_CFG = {
     clientId: '5c396326-be55-4a9e-9d65-1f24c2068f7d',
     tenantId: '9007ee3f-7f5d-4317-aa00-48ad627156bc',
@@ -803,27 +247,31 @@
     auth: {
       clientId: PROD_CFG.clientId,
       authority: 'https://login.microsoftonline.com/' + PROD_CFG.tenantId,
-      redirectUri: 'https://vaselife-intranet.vercel.app/'
+      redirectUri: window.location.origin + window.location.pathname
     },
     cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: false }
   });
 
-  async function getProdToken() {
-    const accounts = msalApp.getAllAccounts();
-    if (!accounts.length) return null;
+  async function doIntranetLogin() {
     try {
-      const resp = await msalApp.acquireTokenSilent({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
-        account: accounts[0]
+      const resp = await msalApp.loginPopup({
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
       });
-      return resp.accessToken;
-    } catch { return null; }
+      showApp(resp.account, resp.accessToken);
+    } catch(e) {
+      console.error('Login mislukt:', e);
+    }
   }
 
   async function prodLogin() {
-    msalApp.loginRedirect({
-      scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
-    });
+    try {
+      const resp = await msalApp.loginPopup({
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
+      });
+      showApp(resp.account, resp.accessToken);
+    } catch(e) {
+      console.error('Login mislukt:', e);
+    }
   }
 
   async function loadProdData(token) {
@@ -848,31 +296,21 @@
     const raw = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
     const h = raw[11];
     const c = n => h.indexOf(n);
-
     const aqIdx = c('RequierdShifts');
     const minStockPowder = +(raw[8]?.[aqIdx] || 0);
     const minStockLiquid = +(raw[9]?.[aqIdx] || 0);
     const totalMinStock = minStockPowder + minStockLiquid;
-
     const articles = raw.slice(12)
       .filter(r => r[0] && !isNaN(r[0]))
-      .map(r => ({
-        machine: r[c('MachineType')] || null,
-        shifts: Math.ceil(Math.max(0, +(r[c('Total or Month')] || 0)))
-      }))
+      .map(r => ({ machine: r[c('MachineType')] || null, shifts: Math.ceil(Math.max(0, +(r[c('Total or Month')] || 0))) }))
       .filter(i => i.machine && i.shifts > 0);
-
     const totalShifts = articles.reduce((s, i) => s + i.shifts, 0);
     const pct = totalShifts === 0 ? 100 : Math.round(Math.max(0, Math.min(100, (1 - totalMinStock / totalShifts) * 100)));
-
-    // Schat aantal weken (10 slots per week, 3 machines)
     const weeksEst = Math.ceil(totalShifts / 30);
-
     return { articles: articles.length, totalShifts, pct, weeksEst };
   }
 
   function showProdData({ articles, totalShifts, pct, weeksEst }) {
-    document.getElementById('prod-login').style.display = 'none';
     document.getElementById('prod-pct').textContent = pct + '%';
     document.getElementById('prod-pct').style.color = pct >= 80 ? '#2e7d32' : pct >= 50 ? '#f57c00' : '#c62828';
     document.getElementById('prod-bar').style.width = pct + '%';
@@ -881,55 +319,23 @@
     document.getElementById('prod-weeks').textContent = weeksEst;
   }
 
-  async function doIntranetLogin() {
-    msalApp.loginRedirect({
-      scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
-    });
-  }
-
   function setUserInfo(account) {
     const fullName = account.name || account.username || 'Medewerker';
     const firstName = fullName.split(' ')[0];
     const initials = fullName.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase();
-
-    // Naam in topbar
     document.getElementById('user-name-display').textContent = fullName;
     document.getElementById('user-initials').textContent = initials;
-
-    // Begroeting
     const now = new Date();
     const h = now.getHours();
     const greeting = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
     document.getElementById('greeting').textContent = greeting + ', ' + firstName + ' 👋';
   }
 
-  async function initProd() {
-    try {
-      const redirectResp = await msalApp.handleRedirectPromise();
-      if (redirectResp) {
-        // Net ingelogd via redirect
-        showApp(redirectResp.account, redirectResp.accessToken);
-        return;
-      }
-    } catch(e) { console.warn('redirect:', e); }
-
-    const accounts = msalApp.getAllAccounts();
-    if (!accounts.length) {
-      // Niet ingelogd — toon loginscherm
-      document.getElementById('login-screen').style.display = 'flex';
-      return;
-    }
-
-    // Al ingelogd — silent token ophalen
-    try {
-      const resp = await msalApp.acquireTokenSilent({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
-        account: accounts[0]
-      });
-      showApp(accounts[0], resp.accessToken);
-    } catch {
-      document.getElementById('login-screen').style.display = 'flex';
-    }
+  function updateGreeting() {
+    const now = new Date();
+    const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+    document.getElementById('herodate').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
   }
 
   function showApp(account, token) {
@@ -944,34 +350,27 @@
     try {
       const data = await loadProdData(token);
       showProdData(data);
-    } catch (e) {
+    } catch(e) {
       document.getElementById('prod-pct').textContent = '⚠️';
     }
   }
 
-  async function getProdToken() {
+  async function initProd() {
     const accounts = msalApp.getAllAccounts();
-    if (!accounts.length) return null;
+    if (!accounts.length) {
+      document.getElementById('login-screen').style.display = 'flex';
+      return;
+    }
     try {
       const resp = await msalApp.acquireTokenSilent({
         scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
         account: accounts[0]
       });
-      return resp.accessToken;
-    } catch { return null; }
+      showApp(accounts[0], resp.accessToken);
+    } catch {
+      document.getElementById('login-screen').style.display = 'flex';
+    }
   }
-
-  async function prodLogin() {
-    msalApp.loginRedirect({
-      scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
-    });
-  }
-
-  // Employes simpele web link
-  document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('btn-employes');
-    if (btn) btn.href = 'https://app.employes.nl';
-  });
 
   document.addEventListener('DOMContentLoaded', initProd);
 </script>

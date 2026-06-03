@@ -13,7 +13,6 @@
     --plum-pale: #f5eef3;
     --plum-subtle: #ede0ea;
     --gold: #d4a853;
-    --white: #ffffff;
     --text: #1a1a1a;
     --text-muted: #6b6b6b;
     --border: #e8dce6;
@@ -25,9 +24,8 @@
   .topbar-logo span { color: var(--gold); }
   .topbar-right { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
   .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--plum-light); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; color: white; border: 2px solid rgba(255,255,255,0.3); }
-  .hero { background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%); padding: 32px 32px; color: white; position: relative; overflow: hidden; text-align: center; }
+  .hero { background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%); padding: 32px; color: white; position: relative; overflow: hidden; text-align: center; }
   .hero::before { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.04); }
-  .hero::after { content: ''; position: absolute; right: 80px; bottom: -80px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.03); }
   .hero-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
   .hero-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
   .hero-date { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.85); }
@@ -36,8 +34,7 @@
   .card-docs { grid-column: span 2; }
   @media (max-width: 600px) {
     .main { grid-template-columns: 1fr 1fr; padding: 16px 12px 48px; gap: 12px; }
-    .card-news { grid-column: span 2; }
-    .card-docs { grid-column: span 2; }
+    .card-news, .card-docs { grid-column: span 2; }
     .label-desktop { display: none !important; }
     .label-mobile { display: inline !important; }
   }
@@ -66,13 +63,13 @@
   .pill-count { font-size: 1.1rem; font-weight: 700; display: block; }
   .rie-link { display: block; margin-top: 16px; text-align: center; background: var(--plum); color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
   .rie-link:hover { background: var(--plum-mid); }
-  .doc-item { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
+  .doc-item { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--border); transition: opacity 0.15s; }
   .doc-item:hover { opacity: 0.75; }
   .doc-type { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
   .doc-pdf { background: #fde8e8; color: #c0392b; }
   .doc-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
   .quicklinks { background: white; border-bottom: 1px solid var(--border); padding: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
-  .ql-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .ql-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; cursor: pointer; border: none; }
   .ql-btn-primary { background: var(--plum); color: white; box-shadow: 0 2px 10px rgba(92,31,82,0.25); }
   .ql-btn-primary:hover { background: var(--plum-mid); transform: translateY(-1px); }
   .ql-btn-secondary { background: var(--plum-mid); color: white; box-shadow: 0 2px 10px rgba(139,42,110,0.25); }
@@ -80,6 +77,15 @@
   .ql-btn-gold { background: var(--plum-light); color: white; box-shadow: 0 2px 10px rgba(192,57,122,0.25); }
   .ql-btn-gold:hover { background: #d4468a; transform: translateY(-1px); }
   .footer { text-align: center; padding: 20px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border); }
+  .news-loading { color: var(--text-muted); font-size: 0.85rem; padding: 12px 0; }
+
+  /* OVERLAY voor dashboards */
+  .dashboard-overlay { display: none; position: fixed; inset: 0; background: white; z-index: 200; flex-direction: column; }
+  .dashboard-overlay.open { display: flex; }
+  .dashboard-header { background: var(--plum); color: white; padding: 0 20px; height: 50px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .dashboard-header span { font-weight: 600; font-size: 0.95rem; }
+  .dashboard-close { background: rgba(255,255,255,0.2); border: none; color: white; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+  .dashboard-iframe { flex: 1; border: none; width: 100%; }
 </style>
 </head>
 <body>
@@ -95,6 +101,15 @@
     </button>
     <div style="font-size:0.75rem; color:#9b9b9b; margin-top:16px;">Alleen toegankelijk voor Vaselife medewerkers</div>
   </div>
+</div>
+
+<!-- DASHBOARD OVERLAY -->
+<div class="dashboard-overlay" id="dashboard-overlay">
+  <div class="dashboard-header">
+    <span id="dashboard-title">Dashboard</span>
+    <button class="dashboard-close" onclick="closeDashboard()">✕ Sluiten</button>
+  </div>
+  <iframe class="dashboard-iframe" id="dashboard-iframe" src=""></iframe>
 </div>
 
 <!-- HOOFDINHOUD -->
@@ -115,14 +130,14 @@
 </div>
 
 <div class="quicklinks">
-  <a href="https://vaselife-productie.vercel.app/" target="_blank" class="ql-btn ql-btn-primary">
+  <button onclick="openDashboard('https://vaselife-productie.vercel.app/', 'Production Dashboard')" class="ql-btn ql-btn-primary">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 11h20M6 7V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2"/><line x1="9" y1="15" x2="9" y2="17"/><line x1="15" y1="15" x2="15" y2="17"/></svg>
     Production dashboard
-  </a>
-  <a href="https://rie-vaselife.vercel.app/" target="_blank" class="ql-btn ql-btn-secondary">
+  </button>
+  <button onclick="openDashboard('https://rie-vaselife.vercel.app/', 'RI&E Dashboard')" class="ql-btn ql-btn-secondary">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg>
     RI&amp;E dashboard
-  </a>
+  </button>
   <a href="https://app.employes.nl" target="_blank" class="ql-btn ql-btn-gold">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     Mijn Employes
@@ -131,29 +146,16 @@
 
 <div class="main">
 
+  <!-- NIEUWS -->
   <div class="card card-news">
     <div class="card-header">
       <div class="card-icon icon-news"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2V9"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
       <div class="card-title">Nieuws &amp; aankondigingen</div>
     </div>
-    <div class="news-item">
-      <div class="news-dot"></div>
-      <div class="news-content">
-        <div class="news-tag">Bedrijf</div>
-        <div class="news-headline">Intranet met RI&amp;E en Production dashboard is live</div>
-        <div class="news-date">Vandaag</div>
-      </div>
-    </div>
-    <div class="news-item">
-      <div class="news-dot" style="background:#d4a853"></div>
-      <div class="news-content">
-        <div class="news-tag">HR</div>
-        <div class="news-headline">Avondtoeslag is per direct verhoogd naar 40% toeslag vanaf 18.30 uur</div>
-        <div class="news-date">Vandaag</div>
-      </div>
-    </div>
+    <div id="news-container"><div class="news-loading">Nieuws laden...</div></div>
   </div>
 
+  <!-- PRODUCTIE -->
   <div class="card" id="prod-card">
     <div class="card-header">
       <div class="card-icon" style="background:#e8f5e9;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 11h20M6 7V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2"/><line x1="9" y1="15" x2="9" y2="17"/><line x1="15" y1="15" x2="15" y2="17"/></svg></div>
@@ -164,27 +166,17 @@
         <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Minimum stock voortgang</span>
         <span id="prod-pct" style="font-size:1.1rem; font-weight:700; color:#2e7d32;">...</span>
       </div>
-      <div class="progress-bar">
-        <div id="prod-bar" class="progress-fill" style="background:linear-gradient(90deg,#2e7d32,#66bb6a); width:0%;"></div>
-      </div>
+      <div class="progress-bar"><div id="prod-bar" class="progress-fill" style="background:linear-gradient(90deg,#2e7d32,#66bb6a); width:0%;"></div></div>
     </div>
     <div style="display:flex; gap:8px; margin-bottom:12px;">
-      <div class="status-pill" style="background:#e8f5e9; color:#2e7d32;">
-        <span id="prod-articles" class="pill-count">-</span>
-        <span style="font-size:0.72rem;">Artikelen</span>
-      </div>
-      <div class="status-pill" style="background:#e3f2fd; color:#1565c0;">
-        <span id="prod-shifts" class="pill-count">-</span>
-        <span style="font-size:0.72rem;">Shifts nodig</span>
-      </div>
-      <div class="status-pill" style="background:#f3e5f5; color:#6a1b9a;">
-        <span id="prod-weeks" class="pill-count">-</span>
-        <span style="font-size:0.72rem;">Weken plan</span>
-      </div>
+      <div class="status-pill" style="background:#e8f5e9; color:#2e7d32;"><span id="prod-articles" class="pill-count">-</span><span style="font-size:0.72rem;">Artikelen</span></div>
+      <div class="status-pill" style="background:#e3f2fd; color:#1565c0;"><span id="prod-shifts" class="pill-count">-</span><span style="font-size:0.72rem;">Shifts nodig</span></div>
+      <div class="status-pill" style="background:#f3e5f5; color:#6a1b9a;"><span id="prod-weeks" class="pill-count">-</span><span style="font-size:0.72rem;">Weken plan</span></div>
     </div>
-    <a href="https://vaselife-productie.vercel.app/" target="_blank" class="rie-link" style="background:#2e7d32; margin-top:auto;">Ga naar Production dashboard →</a>
+    <button onclick="openDashboard('https://vaselife-productie.vercel.app/', 'Production Dashboard')" class="rie-link" style="background:#2e7d32; margin-top:auto; border:none; cursor:pointer;">Ga naar Production dashboard →</button>
   </div>
 
+  <!-- RI&E -->
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-rie"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg></div>
@@ -198,22 +190,14 @@
       <div class="progress-bar"><div class="progress-fill"></div></div>
     </div>
     <div style="display:flex; gap:8px; margin-bottom:12px;">
-      <div style="flex:1; background:#fef0f0; color:#c0392b; text-align:center; padding:10px 4px; border-radius:8px;">
-        <span style="font-size:1.2rem; font-weight:700; display:block;">21</span>
-        <span style="font-size:0.72rem;">Open</span>
-      </div>
-      <div style="flex:1; background:#fef9e7; color:#d68910; text-align:center; padding:10px 4px; border-radius:8px;">
-        <span style="font-size:1.2rem; font-weight:700; display:block;">14</span>
-        <span style="font-size:0.72rem;">Bezig</span>
-      </div>
-      <div style="flex:1; background:#eafaf1; color:#27ae60; text-align:center; padding:10px 4px; border-radius:8px;">
-        <span style="font-size:1.2rem; font-weight:700; display:block;">21</span>
-        <span style="font-size:0.72rem;">Klaar</span>
-      </div>
+      <div style="flex:1; background:#fef0f0; color:#c0392b; text-align:center; padding:10px 4px; border-radius:8px;"><span style="font-size:1.2rem; font-weight:700; display:block;">21</span><span style="font-size:0.72rem;">Open</span></div>
+      <div style="flex:1; background:#fef9e7; color:#d68910; text-align:center; padding:10px 4px; border-radius:8px;"><span style="font-size:1.2rem; font-weight:700; display:block;">14</span><span style="font-size:0.72rem;">Bezig</span></div>
+      <div style="flex:1; background:#eafaf1; color:#27ae60; text-align:center; padding:10px 4px; border-radius:8px;"><span style="font-size:1.2rem; font-weight:700; display:block;">21</span><span style="font-size:0.72rem;">Klaar</span></div>
     </div>
-    <a href="https://rie-vaselife.vercel.app/" target="_blank" class="rie-link" style="margin-top:auto;">Ga naar RI&amp;E dashboard →</a>
+    <button onclick="openDashboard('https://rie-vaselife.vercel.app/', 'RI&E Dashboard')" class="rie-link" style="margin-top:auto; border:none; cursor:pointer;">Ga naar RI&amp;E dashboard →</button>
   </div>
 
+  <!-- DOCUMENTEN -->
   <div class="card card-docs">
     <div class="card-header">
       <div class="card-icon icon-docs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
@@ -221,78 +205,123 @@
     </div>
     <div class="doc-item">
       <div class="doc-type doc-pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
-      <div>
-        <div class="doc-name"><a href="https://vaselifeinternational.sharepoint.com/:b:/s/General/IQAVNsTpI1M2QKuyeCLR2AnNAcX8LRZ9RK5KFyM-3Edf1W0?e=OrXVSx" target="_blank" style="color:var(--text); text-decoration:none;">Handboek Vaselife</a></div>
-      </div>
+      <div><div class="doc-name"><a href="https://vaselifeinternational.sharepoint.com/:b:/s/General/IQAVNsTpI1M2QKuyeCLR2AnNAcX8LRZ9RK5KFyM-3Edf1W0?e=OrXVSx" target="_blank" style="color:var(--text); text-decoration:none;">Handboek Vaselife</a></div></div>
     </div>
   </div>
 
 </div>
-
 <div class="footer">Vaselife International · Intranet · © 2026</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-  const PROD_CFG = {
+  const CFG = {
     clientId: '5c396326-be55-4a9e-9d65-1f24c2068f7d',
     tenantId: '9007ee3f-7f5d-4317-aa00-48ad627156bc',
     siteHostname: 'vaselifeinternational.sharepoint.com',
     sitePath: '/sites/General',
-    fileId: '284E7167-0D9F-40B5-9D9D-A53746205FED'
+    fileId: '284E7167-0D9F-40B5-9D9D-A53746205FED',
+    newsSite: 'https://graph.microsoft.com/v1.0/sites/vaselifeinternational.sharepoint.com:/sites/Communicatiesite'
   };
 
   const msalApp = new msal.PublicClientApplication({
     auth: {
-      clientId: PROD_CFG.clientId,
-      authority: 'https://login.microsoftonline.com/' + PROD_CFG.tenantId,
+      clientId: CFG.clientId,
+      authority: 'https://login.microsoftonline.com/' + CFG.tenantId,
       redirectUri: window.location.origin + window.location.pathname
     },
     cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: false }
   });
 
+  // ── Dashboard overlay ──
+  function openDashboard(url, title) {
+    document.getElementById('dashboard-title').textContent = title;
+    document.getElementById('dashboard-iframe').src = url;
+    document.getElementById('dashboard-overlay').classList.add('open');
+  }
+
+  function closeDashboard() {
+    document.getElementById('dashboard-overlay').classList.remove('open');
+    document.getElementById('dashboard-iframe').src = '';
+  }
+
+  // ── Login ──
   async function doIntranetLogin() {
     try {
       const resp = await msalApp.loginPopup({
         scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
       });
       showApp(resp.account, resp.accessToken);
-    } catch(e) {
-      console.error('Login mislukt:', e);
-    }
+    } catch(e) { console.error('Login mislukt:', e); }
   }
 
-  async function prodLogin() {
+  // ── Nieuws laden uit SharePoint lijst ──
+  async function loadNews(token) {
     try {
-      const resp = await msalApp.loginPopup({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
-      });
-      showApp(resp.account, resp.accessToken);
+      // Eerst site ID ophalen
+      const siteResp = await fetch(CFG.newsSite, { headers: { Authorization: 'Bearer ' + token } });
+      if (!siteResp.ok) throw new Error('Site niet gevonden');
+      const site = await siteResp.json();
+
+      // Dan lijst items ophalen — gesorteerd op datum aflopend
+      const listResp = await fetch(
+        `https://graph.microsoft.com/v1.0/sites/${site.id}/lists/Nieuws %26 aankondigingen/items?$expand=fields&$orderby=fields/Datum desc&$top=5`,
+        { headers: { Authorization: 'Bearer ' + token } }
+      );
+      if (!listResp.ok) throw new Error('Lijst niet gevonden');
+      const data = await listResp.json();
+
+      renderNews(data.value);
     } catch(e) {
-      console.error('Login mislukt:', e);
+      console.error('Nieuws laden mislukt:', e);
+      document.getElementById('news-container').innerHTML = '<div class="news-loading">Nieuws tijdelijk niet beschikbaar.</div>';
     }
   }
 
+  function renderNews(items) {
+    const container = document.getElementById('news-container');
+    if (!items || items.length === 0) {
+      container.innerHTML = '<div class="news-loading">Geen nieuwsberichten gevonden.</div>';
+      return;
+    }
+
+    const tagColors = { 'HR': '#d4a853', 'Bedrijf': 'var(--plum-light)', 'Overig': 'var(--plum-mid)' };
+
+    container.innerHTML = items.map(item => {
+      const f = item.fields;
+      const tag = f.Tag || 'Overig';
+      const titel = f.Title || '';
+      const datum = f.Datum ? new Date(f.Datum).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+      const color = tagColors[tag] || 'var(--plum-mid)';
+      return `<div class="news-item">
+        <div class="news-dot" style="background:${color}"></div>
+        <div class="news-content">
+          <div class="news-tag">${tag}</div>
+          <div class="news-headline">${titel}</div>
+          <div class="news-date">${datum}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Productie data ──
   async function loadProdData(token) {
     const siteResp = await fetch(
-      `https://graph.microsoft.com/v1.0/sites/${PROD_CFG.siteHostname}:${PROD_CFG.sitePath}`,
+      `https://graph.microsoft.com/v1.0/sites/${CFG.siteHostname}:${CFG.sitePath}`,
       { headers: { Authorization: 'Bearer ' + token } }
     );
     if (!siteResp.ok) throw new Error('Site ophalen mislukt');
     const site = await siteResp.json();
-
     const fileResp = await fetch(
-      `https://graph.microsoft.com/v1.0/sites/${site.id}/drive/items/${PROD_CFG.fileId}/content`,
+      `https://graph.microsoft.com/v1.0/sites/${site.id}/drive/items/${CFG.fileId}/content`,
       { headers: { Authorization: 'Bearer ' + token } }
     );
     if (!fileResp.ok) throw new Error('Bestand ophalen mislukt');
-
     const buffer = await fileResp.arrayBuffer();
     const wb = XLSX.read(buffer, { type: 'array' });
     const ws = wb.Sheets['ValueMarginSales'];
     if (!ws) throw new Error('Tabblad niet gevonden');
-
     const raw = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
     const h = raw[11];
     const c = n => h.indexOf(n);
@@ -300,10 +329,7 @@
     const minStockPowder = +(raw[8]?.[aqIdx] || 0);
     const minStockLiquid = +(raw[9]?.[aqIdx] || 0);
     const totalMinStock = minStockPowder + minStockLiquid;
-    const articles = raw.slice(12)
-      .filter(r => r[0] && !isNaN(r[0]))
-      .map(r => ({ machine: r[c('MachineType')] || null, shifts: Math.ceil(Math.max(0, +(r[c('Total or Month')] || 0))) }))
-      .filter(i => i.machine && i.shifts > 0);
+    const articles = raw.slice(12).filter(r => r[0] && !isNaN(r[0])).map(r => ({ machine: r[c('MachineType')] || null, shifts: Math.ceil(Math.max(0, +(r[c('Total or Month')] || 0))) })).filter(i => i.machine && i.shifts > 0);
     const totalShifts = articles.reduce((s, i) => s + i.shifts, 0);
     const pct = totalShifts === 0 ? 100 : Math.round(Math.max(0, Math.min(100, (1 - totalMinStock / totalShifts) * 100)));
     const weeksEst = Math.ceil(totalShifts / 30);
@@ -325,13 +351,12 @@
     const initials = fullName.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase();
     document.getElementById('user-name-display').textContent = fullName;
     document.getElementById('user-initials').textContent = initials;
-    const now = new Date();
-    const h = now.getHours();
+    const h = new Date().getHours();
     const greeting = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
     document.getElementById('greeting').textContent = greeting + ', ' + firstName + ' 👋';
   }
 
-  function updateGreeting() {
+  function updateDate() {
     const now = new Date();
     const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
     const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
@@ -342,37 +367,24 @@
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
     setUserInfo(account);
-    updateGreeting();
-    loadProdDataAndShow(token);
+    updateDate();
+    loadNews(token);
+    loadProdData(token).then(showProdData).catch(() => { document.getElementById('prod-pct').textContent = '⚠️'; });
   }
 
-  async function loadProdDataAndShow(token) {
-    try {
-      const data = await loadProdData(token);
-      showProdData(data);
-    } catch(e) {
-      document.getElementById('prod-pct').textContent = '⚠️';
-    }
-  }
-
-  async function initProd() {
+  async function init() {
     const accounts = msalApp.getAllAccounts();
-    if (!accounts.length) {
-      document.getElementById('login-screen').style.display = 'flex';
-      return;
-    }
+    if (!accounts.length) { document.getElementById('login-screen').style.display = 'flex'; return; }
     try {
       const resp = await msalApp.acquireTokenSilent({
         scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
         account: accounts[0]
       });
       showApp(accounts[0], resp.accessToken);
-    } catch {
-      document.getElementById('login-screen').style.display = 'flex';
-    }
+    } catch { document.getElementById('login-screen').style.display = 'flex'; }
   }
 
-  document.addEventListener('DOMContentLoaded', initProd);
+  document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>

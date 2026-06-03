@@ -250,7 +250,7 @@
   async function doIntranetLogin() {
     try {
       const resp = await msalApp.loginPopup({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All']
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All', 'https://graph.microsoft.com/Sites.Selected']
       });
       showApp(resp.account, resp.accessToken);
     } catch(e) { console.error('Login mislukt:', e); }
@@ -260,7 +260,7 @@
   async function loadNews(token) {
     try {
       const listResp = await fetch(
-        `https://graph.microsoft.com/v1.0/sites/vaselifeinternational.sharepoint.com,9531b70a-71f4-4b31-9cea-20515f5c5349,239ae8eb-507b-4a20-a29c-866a21e852b9/lists/5802792b-894f-483f-9775-ea4c22cd23b9/items?$expand=fields&$orderby=fields/Datum%20desc&$top=5`,
+        `https://graph.microsoft.com/v1.0/sites/vaselifeinternational.sharepoint.com,9531b70a-71f4-4b31-9cea-20515f5c5349,239ae8eb-507b-4a20-a29c-866a21e852b9/lists/5802792b-894f-483f-9775-ea4c22cd23b9/items?$expand=fields&$top=10`,
         { headers: { Authorization: 'Bearer ' + token } }
       );
       if (!listResp.ok) throw new Error('Lijst niet gevonden: ' + listResp.status);
@@ -370,7 +370,7 @@
     if (!accounts.length) { document.getElementById('login-screen').style.display = 'flex'; return; }
     try {
       const resp = await msalApp.acquireTokenSilent({
-        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All'],
+        scopes: ['https://graph.microsoft.com/Files.Read', 'https://graph.microsoft.com/Sites.Read.All', 'https://graph.microsoft.com/Sites.Selected'],
         account: accounts[0]
       });
       showApp(accounts[0], resp.accessToken);

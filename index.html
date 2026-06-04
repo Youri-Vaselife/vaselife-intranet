@@ -4,29 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vaselife Intranet</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --plum: #5c1f52;
-    --plum-mid: #8b2a6e;
-    --plum-light: #c0397a;
+    --plum: #622D51;
+    --plum-mid: #A7267E;
+    --plum-light: #A7267E;
     --plum-pale: #f5eef3;
     --plum-subtle: #ede0ea;
-    --gold: #d4a853;
+    --gold: #00665E;
     --text: #1a1a1a;
     --text-muted: #6b6b6b;
     --border: #e8dce6;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--plum-pale); color: var(--text); min-height: 100vh; }
+  body { font-family: 'Raleway', sans-serif; background: var(--plum-pale); color: var(--text); min-height: 100vh; }
   .topbar { background: var(--plum); color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(92,31,82,0.3); }
-  .topbar-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.04em; color: white; }
+  .topbar-logo { font-family: 'Raleway', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.04em; color: white; }
   .topbar-logo span { color: var(--gold); }
   .topbar-right { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
   .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--plum-light); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; color: white; border: 2px solid rgba(255,255,255,0.3); }
   .hero { background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 60%, var(--plum-light) 100%); padding: 32px; color: white; position: relative; overflow: hidden; text-align: center; }
   .hero::before { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.04); }
-  .hero-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+  .hero-title { font-family: 'Raleway', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
   .hero-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
   .hero-date { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.85); }
   .main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -49,7 +49,7 @@
   .icon-news { background: #fef3e8; }
   .icon-rie { background: #fde8ee; }
   .icon-docs { background: #e8f0fe; }
-  .card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--plum); }
+  .card-title { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--plum); }
   .news-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
   .news-item:last-child { padding-bottom: 0; border-bottom: none; }
   .news-item:first-of-type { padding-top: 0; }
@@ -93,9 +93,9 @@
 <!-- LOGIN SCHERM -->
 <div id="login-screen" style="display:none; position:fixed; inset:0; background:linear-gradient(135deg,#5c1f52 0%,#8b2a6e 60%,#c0397a 100%); z-index:9999; display:flex; align-items:center; justify-content:center;">
   <div style="background:white; border-radius:20px; padding:48px 40px; text-align:center; max-width:380px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-    <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:#5c1f52; margin-bottom:4px;">Vaselife <span style="color:#d4a853;">Intranet</span></div>
+    <div style="font-family: 'Raleway', sans-serif; font-size:1.6rem; font-weight:700; color:#5c1f52; margin-bottom:4px;">Vaselife <span style="color:#d4a853;">Intranet</span></div>
     <div style="font-size:0.85rem; color:#6b6b6b; margin-bottom:32px;">Log in met je Vaselife account</div>
-    <button onclick="doIntranetLogin()" style="background:#5c1f52; color:white; border:none; border-radius:12px; padding:14px 28px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; font-family:'DM Sans',sans-serif;">
+    <button onclick="doIntranetLogin()" style="background:#5c1f52; color:white; border:none; border-radius:12px; padding:14px 28px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Raleway', sans-serif;">
       <svg width="20" height="20" viewBox="0 0 23 23" fill="none"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
       Inloggen met Microsoft
     </button>

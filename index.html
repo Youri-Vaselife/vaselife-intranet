@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vaselife Intranet</title>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --plum: #622D51;
@@ -75,7 +75,7 @@
   .ql-btn-secondary { background: var(--plum-mid); color: white; box-shadow: 0 2px 10px rgba(139,42,110,0.25); }
   .ql-btn-secondary:hover { background: var(--plum-light); transform: translateY(-1px); }
   .ql-btn-gold { background: var(--plum-light); color: white; box-shadow: 0 2px 10px rgba(192,57,122,0.25); }
-  .ql-btn-gold:hover { background: #d4468a; transform: translateY(-1px); }
+  .ql-btn-gold:hover { background: #A7267E; transform: translateY(-1px); }
   .footer { text-align: center; padding: 20px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border); }
   .news-loading { color: var(--text-muted); font-size: 0.85rem; padding: 12px 0; }
 
@@ -91,11 +91,11 @@
 <body>
 
 <!-- LOGIN SCHERM -->
-<div id="login-screen" style="display:none; position:fixed; inset:0; background:linear-gradient(135deg,#5c1f52 0%,#8b2a6e 60%,#c0397a 100%); z-index:9999; display:flex; align-items:center; justify-content:center;">
+<div id="login-screen" style="display:none; position:fixed; inset:0; background:linear-gradient(135deg,#622D51 0%,#A7267E 60%,#A7267E 100%); z-index:9999; display:flex; align-items:center; justify-content:center;">
   <div style="background:white; border-radius:20px; padding:48px 40px; text-align:center; max-width:380px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-    <div style="font-family: 'Raleway', sans-serif; font-size:1.6rem; font-weight:700; color:#5c1f52; margin-bottom:4px;">Vaselife <span style="color:#d4a853;">Intranet</span></div>
+    <div style="font-family: 'Raleway', sans-serif; font-size:1.6rem; font-weight:700; color:#622D51; margin-bottom:4px;">Vaselife <span style="color:#00665E;">Intranet</span></div>
     <div style="font-size:0.85rem; color:#6b6b6b; margin-bottom:32px;">Log in met je Vaselife account</div>
-    <button onclick="doIntranetLogin()" style="background:#5c1f52; color:white; border:none; border-radius:12px; padding:14px 28px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Raleway', sans-serif;">
+    <button onclick="doIntranetLogin()" style="background:#622D51; color:white; border:none; border-radius:12px; padding:14px 28px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Raleway', sans-serif;">
       <svg width="20" height="20" viewBox="0 0 23 23" fill="none"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
       Inloggen met Microsoft
     </button>
@@ -149,7 +149,7 @@
   <!-- NIEUWS -->
   <div class="card card-news">
     <div class="card-header">
-      <div class="card-icon icon-news"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2V9"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
+      <div class="card-icon icon-news"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A7267E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2V9"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
       <div class="card-title">Nieuws &amp; aankondigingen</div>
     </div>
     <div id="news-container"><div class="news-loading">Nieuws laden...</div></div>
@@ -171,7 +171,7 @@
     <div style="display:flex; gap:8px; margin-bottom:12px;">
       <div class="status-pill" style="background:#e8f5e9; color:#2e7d32;"><span id="prod-articles" class="pill-count">-</span><span style="font-size:0.72rem;">Artikelen</span></div>
       <div class="status-pill" style="background:#e3f2fd; color:#1565c0;"><span id="prod-shifts" class="pill-count">-</span><span style="font-size:0.72rem;">Shifts nodig</span></div>
-      <div class="status-pill" style="background:#f3e5f5; color:#6a1b9a;"><span id="prod-weeks" class="pill-count">-</span><span style="font-size:0.72rem;">Weken plan</span></div>
+      <div class="status-pill" style="background:#f3e5f5; color:#622D51;"><span id="prod-weeks" class="pill-count">-</span><span style="font-size:0.72rem;">Weken plan</span></div>
     </div>
     <button onclick="openDashboard('https://vaselife-productie.vercel.app/', 'Production Dashboard')" class="rie-link" style="background:#2e7d32; margin-top:auto; border:none; cursor:pointer;">Ga naar Production dashboard →</button>
   </div>
@@ -179,7 +179,7 @@
   <!-- RI&E -->
   <div class="card">
     <div class="card-header">
-      <div class="card-icon icon-rie"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+      <div class="card-icon icon-rie"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A7267E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/><polyline points="9 12 11 14 15 10"/></svg></div>
       <div class="card-title">RI&amp;E<br>dashboard</div>
     </div>
     <div style="margin-bottom:12px;">
@@ -200,7 +200,7 @@
   <!-- DOCUMENTEN -->
   <div class="card card-docs">
     <div class="card-header">
-      <div class="card-icon icon-docs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b2a6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="card-icon icon-docs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A7267E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
       <div class="card-title">Documenten</div>
     </div>
     <div class="doc-item">
@@ -279,7 +279,7 @@
       return;
     }
 
-    const tagColors = { 'HR': '#d4a853', 'Bedrijf': 'var(--plum-light)', 'Overig': 'var(--plum-mid)' };
+    const tagColors = { 'HR': '#00665E', 'Bedrijf': 'var(--plum-light)', 'Overig': 'var(--plum-mid)' };
 
     container.innerHTML = items.map((item, i) => {
       const f = item.fields;
